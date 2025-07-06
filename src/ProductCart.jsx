@@ -11,7 +11,7 @@ function ProductCart({ cartItems, onRemoveFromCart }) {
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
-              <h3>{item.name} - ${item.price.toFixed(2)}</h3>
+              <h3>{item.name} - ${item.price.toFixed(2)} x {item.quantity}</h3>
               <button onClick={() => onRemoveFromCart(item.id)}>Remove</button>
             </li>
           ))}
@@ -20,7 +20,7 @@ function ProductCart({ cartItems, onRemoveFromCart }) {
         <div className="cart-total">
             <h3>
             Total: $
-            {cartItems.reduce((total, item) => total + item.price, 0).toFixed(2)}
+            {cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
             </h3>
         </div>
     </div>
