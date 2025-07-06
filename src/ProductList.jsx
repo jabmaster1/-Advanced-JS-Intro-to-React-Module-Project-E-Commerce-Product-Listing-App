@@ -5,10 +5,10 @@ import './ProductList.css';
 const ProductList = ({ products, onAddToCart }) => {
   return (
     <div className="product-list">
-      <h2>Product List</h2>
+      <h2>Product List:</h2>
       <ul>
         {products.map(product => (
-          <ul key={product.id}>
+          <ul class="list-buckets" key={product.id}>
             <h3>{product.name} - ${product.price.toFixed(2)}</h3>
             <p>{product.description}</p>
             <button onClick={() => onAddToCart(product)}>Add to Cart</button>

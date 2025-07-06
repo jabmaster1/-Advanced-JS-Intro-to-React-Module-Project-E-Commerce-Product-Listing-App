@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: lightblue
+    background-color: lightblue;
 }
 h1 {
     text-align: center;
@@ -25,5 +25,5 @@ h1 {
 .product-list-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    flex-direction: column;
 }

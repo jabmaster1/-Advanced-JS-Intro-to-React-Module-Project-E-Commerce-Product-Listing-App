@@ -5,11 +5,11 @@ import "./ProductCart.css";
 function ProductCart({ cartItems, onRemoveFromCart, onDecreaseQuantity }) {
   return (
     <div className="product-cart">
-      <h2 className="shopping-cart">Shopping Cart</h2>
+      <h2 className="shopping-cart-header">Shopping Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <ul>
+        <ul className="cart-items">
           {cartItems.map((item) => (
             <li key={item.id}>
               <h3>{item.name} - ${item.price.toFixed(2)} x {item.quantity}</h3>
