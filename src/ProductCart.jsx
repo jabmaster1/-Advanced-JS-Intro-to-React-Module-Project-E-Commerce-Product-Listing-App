@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./ProductCart.css";
 
-function ProductCart({ cartItems, onRemoveFromCart }) {
+function ProductCart({ cartItems, onRemoveFromCart, onDecreaseQuantity }) {
   return (
     <div className="product-cart">
-      <h2>Shopping Cart</h2>
+      <h2 className="shopping-cart">Shopping Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
@@ -12,6 +13,9 @@ function ProductCart({ cartItems, onRemoveFromCart }) {
           {cartItems.map((item) => (
             <li key={item.id}>
               <h3>{item.name} - ${item.price.toFixed(2)} x {item.quantity}</h3>
+              {item.quantity > 1 && (
+                <button onClick={() => onDecreaseQuantity(item.id)}>-1</button>
+              )}
               <button onClick={() => onRemoveFromCart(item.id)}>Remove</button>
             </li>
           ))}
