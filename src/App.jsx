@@ -3,6 +3,7 @@ import ProductList from './ProductList';
 import ProductCart from './ProductCart';
 
 function App() {
+  // Cart Items
   const [products] = useState([
     { id: 1, name: 'Laptop', price: 999.99, description: 'A high-performance laptop.' },
     { id: 2, name: 'Headphones', price: 199.99, description: 'Noise-cancelling headphones.' },
@@ -12,6 +13,7 @@ function App() {
 
   const [cartItems, setCartItems] = useState([]);
 
+  // Add a product to the cart
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(item => item.id === product.id);
@@ -25,14 +27,15 @@ function App() {
       }
     });
   };
-
+  // Decrease the quantity of a product in the cart
+  // If the quantity reaches 0, remove the item from the cart
   const decreaseQuantity = (productId) => {
     setCartItems((prevItems) =>
       prevItems
         .map(item =>
           item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
         )
-        .filter(item => item.quantity > 0) // Remove item if quantity reaches 0
+        .filter(item => item.quantity > 0)
     );
   };
 
